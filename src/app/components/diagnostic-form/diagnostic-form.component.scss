@@ -1,0 +1,119 @@
+.form-container {
+  flex-wrap: wrap;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+}
+
+.centered-form, .form-json-container {
+  background-color: #f5edf2;
+}
+
+.centered-form {
+  width: 650px;
+  padding-top: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.diagnoses-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-picker-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 30px;
+  width: 300px;
+
+
+  mat-label  {
+    flex-basis: 10%;
+  }
+
+  mat-form-field {
+    flex-basis: 70%;
+  }
+
+  span {
+    flex-basis: 100%;
+  }
+
+}
+
+.label {
+  margin-right: 16px;
+}
+
+.diagnoses-group {
+  margin-left: 30px;
+}
+
+.diagnoses-input-container {
+  display: flex;
+}
+
+mat-form-field {
+  width: 280px;
+}
+
+.diagnoses-notes-input {
+  margin-left: 20px;
+}
+
+mat-select {
+  margin-left: 15px;
+}
+
+.add-diagnose{
+  color:#36d1f7;
+}
+
+
+.add-diagnose-link {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.add-diagnose-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+
+.save-button-container {
+  margin-top:20px;
+}
+
+
+.save-button {
+  width: 100%;
+  border: 2px solid #36d1f7;
+  border-radius: 5px;
+  color: #36d1f7;
+  background-color: transparent;
+}
+
+.mat-mdc-raised-button:not(:disabled){
+  color: #36d1f7;
+}
+
+.save-button:hover {
+  background-color: #36d1f7;
+  color: white;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}

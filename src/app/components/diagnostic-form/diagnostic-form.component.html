@@ -1,0 +1,60 @@
+<div class="form-container">
+
+  <form [formGroup]="diagForm" (ngSubmit)="onSubmit()" class="centered-form" novalidate>
+    <div class="date-picker-container">
+      <mat-label class="label"><h2>Дата:</h2></mat-label>
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [placeholder]="selectedDate.value ? (selectedDate.value): '__.__.____'"
+          [min]="currentDate"
+          formControlName="selectedDate"
+        />
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <span *ngIf="diagForm.get('selectedDate')?.hasError('minDateViolation')" class="error-message">
+            Обрана дата повинна бути більш або дорівнювати поточній даті.
+      </span>
+    </div>
+
+    <div class="diagnoses-group">
+      <div class="diagnoses-picker-container">
+        <div class="diagnoses-label-container">
+          <mat-label><h2>Діагнози за ICPC-2</h2></mat-label>
+        </div>
+
+        <div formArrayName="rows">
+          <div *ngFor="let row of arrayOfInputs.controls; let i = index">
+            <div [formGroupName]="i" class="diagnoses-input">
+              <mat-form-field appearance="fill">
+                <mat-label>Вибір</mat-label>
+                <input type="text" formControlName="options" matInput [matAutocomplete]="auto">
+                <mat-icon matSuffix class="dropdown-icon" >arrow_drop_down</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of options$ | async; index as i;" [id]="'auto' + option.id"
+                              [value]="option.code + ' ' + option.name"
+                              (onSelectionChange)="selectionChange($event, option)">
+                    {{option.code}} {{option.name}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-form-field class="diagnoses-notes-input" appearance="fill">
+                <mat-label>Коментар</mat-label>
+                <input matInput formControlName="comment" placeholder="Введите текст">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <a class="add-diagnose-link" (click)="addDiagnose()">+ додати ще</a>
+        <div class="save-button-container">
+          <button mat-raised-button class="save-button" [disabled]="!diagForm.controls['selectedDate'].valid">Сформувати JSON</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-diagnostic-response [data]=upDataEncounter></app-diagnostic-response>
+</div>

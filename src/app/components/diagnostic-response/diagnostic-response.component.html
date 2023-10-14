@@ -1,0 +1,12 @@
+<form class="form-json-container" >
+  <div class="json-container">
+    <div><h2>JSON:</h2> </div>
+    <div>
+      <mat-form-field>
+        <textarea matInput rows="8" cols="100" class="scrollable-textarea">
+          {{data|json}}
+        </textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

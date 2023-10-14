@@ -1,0 +1,12 @@
+.json-container {
+  padding: 30px 30px;
+  background-color: #f5edf2;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.scrollable-textarea {
+  overflow-y: auto;
+  resize: none;
+}
