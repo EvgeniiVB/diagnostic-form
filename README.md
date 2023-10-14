@@ -1,5 +1,7 @@
 # DiagnosticForm
 
+[DEMO](https://main--benevolent-pegasus-e3be50.netlify.app)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
 ## Development server
